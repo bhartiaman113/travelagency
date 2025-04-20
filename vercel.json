@@ -11,8 +11,17 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "src": "/(?!assets/.*|.*\\..+)",  
+        "dest": "/index.html",
+        "status": 200
+      },
+      {
+        "src": "/assets/(.*)", 
+        "dest": "/assets/$1"
+      },
+      {
+        "src": "/(.*)\\.(.*)", 
+        "dest": "/$1.$2"
       }
     ]
   }
